@@ -1,0 +1,22 @@
+<h1>Episodes</h1>
+<div style="margin-bottom: 10px;margin-top:10px;width: 100%;">
+  <input type="text" [(ngModel)]="query" id="search" style="width:50%; height: 30px" aria-describedby="queryHelp" placeholder="Enter query">
+  <button type="button" style="width:5%;height:100%; vertical-align: top" (click)="search()" class="btn btn-default color-blue"><i class="material-icons">search</i></button>
+  <span *ngIf="errorMessage.length > 0" style="color:red"> {{errorMessage}} </span>
+</div>  
+
+<ul>
+  <li *ngFor="let episode of episodes$">
+    <a routerLink="/details/{{episode._source.episodeTitle}}">
+      S{{episode._source.seasonNum}}E{{episode._source.episodeNum}} : {{episode._source.episodeTitle }}
+    </a>
+  </li>
+</ul>
+
+
+<div class="btn-toolbar" role="toolbar" style="margin: 0;float:right">
+    <div class="btn-group">
+        <button type="button" (click)="down();changePage()" class="btn btn-default color-blue"><i class="material-icons">navigate_before</i></button>
+        <button type="button" (click)="up();changePage()" class="btn btn-default color-blue"><i class="material-icons">navigate_next</i></button>
+    </div>
+</div>

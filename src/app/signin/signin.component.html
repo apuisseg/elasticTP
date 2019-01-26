@@ -1,0 +1,16 @@
+<div id="login">
+  <h1>Sign in here!</h1>
+  <p *ngIf="errorMessage.length > 0"> {{errorMessage}}</p>
+  <!--Call a function on submit-->
+  <form (ngSubmit)="onSubmit()">
+    <div class="field-wrap">
+      <!--Link the input to the ngModel-->
+      <input type="text" placeholder="Username*" name="username" [(ngModel)]="name" required autocomplete="off" />
+    </div>
+    <!--Link the input to the ngModel-->
+    <div class="field-wrap">
+      <input type="password" placeholder="Password*" [(ngModel)]="password" name="password" required autocomplete="off" />
+    </div>
+    <button class="button button-block" type="submit" >Log In</button>
+  </form>
+</div>

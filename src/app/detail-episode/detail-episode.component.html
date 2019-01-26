@@ -1,0 +1,20 @@
+<h1>{{ title }}</h1>
+<ul>
+  <li>
+    <strong>SEASON : {{episodeData[0]._source.seasonNum}} </strong> 
+  </li>
+  <li>
+      <strong> EPISODE :  {{episodeData[0]._source.episodeNum}}</strong> 
+    </li>
+    <li>
+        <strong> DESCRIPTION :  </strong> 
+        <p>{{episodeData[0]._source.episodeDescription}}</p>
+      </li>
+      <li>
+          <strong>Lieux : </strong>
+          <p *ngFor=" let loc of episodeData[0]._source.openingSequenceLocations">
+            {{loc}}
+          </p>
+      </li>
+</ul>
+
